@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2jcy00ajf1sg"]
+
+[ext_resource type="Texture2D" uid="uid://cg7j53xos5uds" path="res://Assets/Sprites/Game/Ships/spaceShips_008.png" id="1_3k1ca"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3k1ca"]
+radius = 57.0
+height = 164.0
+
+[sub_resource type="Curve" id="Curve_3k1ca"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6s7s7"]
+offsets = PackedFloat32Array(0.00456621, 1)
+colors = PackedColorArray(1, 0.20066246, 0.1494692, 1, 1, 1, 0, 1)
+
+[node name="Player_ship" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+texture = ExtResource("1_3k1ca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 0)
+shape = SubResource("CapsuleShape2D_3k1ca")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-69, 0)
+rotation = -3.1415927
+emitting = false
+amount = 60
+lifetime = 1.5
+one_shot = true
+spread = 75.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_max = 720.0
+linear_accel_max = 100.0
+scale_amount_min = 5.0
+scale_amount_max = 35.0
+scale_amount_curve = SubResource("Curve_3k1ca")
+color_ramp = SubResource("Gradient_6s7s7")
+hue_variation_max = 1.0
