@@ -1,17 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwwc7vsb5axrk"]
+[gd_scene load_steps=14 format=3 uid="uid://dwwc7vsb5axrk"]
 
 [ext_resource type="PackedScene" uid="uid://c2jcy00ajf1sg" path="res://Scenes/player_ship.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://c8wbgeh8xsxuf" path="res://Scripts/player_ship.gd" id="2_qxrlw"]
-[ext_resource type="Texture2D" uid="uid://d3t66ts0lqbhg" path="res://Assets/Sprites/Game/Meteors/spaceMeteors_001.png" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://bg0ximm5up7mg" path="res://Scripts/planets.gd" id="3_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://58bvynrj1dmh" path="res://Assets/Sprites/Planets/sun.png" id="3_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://bervj86udbuwh" path="res://Assets/Sprites/Planets/mercury.png" id="4_rku1e"]
+[ext_resource type="Texture2D" uid="uid://547aov763ior" path="res://Assets/Sprites/Planets/venus.png" id="5_rfjv2"]
+[ext_resource type="Texture2D" uid="uid://ci8jifiutw3h" path="res://Assets/Sprites/Planets/earth.png" id="6_1phco"]
+[ext_resource type="Texture2D" uid="uid://b80ege3ei4bhg" path="res://Assets/Sprites/Planets/mars.png" id="7_nb51f"]
+[ext_resource type="Texture2D" uid="uid://d2gpj2dw84onl" path="res://Assets/Sprites/Planets/jupiter.png" id="8_nnt18"]
+[ext_resource type="Texture2D" uid="uid://cyhfqv0oqmxy" path="res://Assets/Sprites/Planets/saturn.png" id="9_ewbju"]
+[ext_resource type="Texture2D" uid="uid://c4sd8s06jbwvt" path="res://Assets/Sprites/Planets/saturn_rings.png" id="10_85qyi"]
+[ext_resource type="Texture2D" uid="uid://c4c7polh3q5xd" path="res://Assets/Sprites/Planets/uranus.png" id="11_iivbl"]
+[ext_resource type="Texture2D" uid="uid://bm6u1lvdynlwd" path="res://Assets/Sprites/Planets/neptune.png" id="12_7nbq1"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player_ship" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(2930, 821)
 script = ExtResource("2_qxrlw")
 
 [node name="Camera2D" type="Camera2D" parent="Player_ship"]
+zoom = Vector2(0.1, 0.1)
 position_smoothing_speed = 100.0
 
-[node name="SpaceMeteors001" type="Sprite2D" parent="."]
-position = Vector2(-467, 130)
+[node name="Planets" type="Node" parent="."]
+script = ExtResource("3_rfjv2")
+metadata/size_scale = 0.0
+
+[node name="Sun" type="Sprite2D" parent="Planets"]
+scale = Vector2(10, 10)
 texture = ExtResource("3_wrm1d")
+
+[node name="Mercury" type="Sprite2D" parent="Planets"]
+position = Vector2(4200, 0)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("4_rku1e")
+
+[node name="Venus" type="Sprite2D" parent="Planets"]
+position = Vector2(7100, 0)
+scale = Vector2(4.75, 4.75)
+texture = ExtResource("5_rfjv2")
+
+[node name="Earth" type="Sprite2D" parent="Planets"]
+position = Vector2(10000, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("6_1phco")
+
+[node name="Mars" type="Sprite2D" parent="Planets"]
+position = Vector2(15237, 0)
+scale = Vector2(2.65, 2.65)
+texture = ExtResource("7_nb51f")
+
+[node name="Jupiter" type="Sprite2D" parent="Planets"]
+position = Vector2(18422, -1)
+texture = ExtResource("8_nnt18")
+
+[node name="Saturn" type="Sprite2D" parent="Planets"]
+position = Vector2(19858, -1)
+texture = ExtResource("9_ewbju")
+
+[node name="SaturnRings" type="Sprite2D" parent="Planets/Saturn"]
+scale = Vector2(2.1757355, 2.1757355)
+texture = ExtResource("10_85qyi")
+
+[node name="Uranus" type="Sprite2D" parent="Planets"]
+position = Vector2(21513, 0)
+texture = ExtResource("11_iivbl")
+
+[node name="Neptune" type="Sprite2D" parent="Planets"]
+position = Vector2(23299, 0)
+texture = ExtResource("12_7nbq1")

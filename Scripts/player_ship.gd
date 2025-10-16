@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("Ship_Move"):
 		var movement_vector := Vector2(1,0)
 		var direction = global_transform.basis_xform(Vector2.RIGHT)
-		var SPEED = 1000
+		var SPEED = 2000
 		global_position += (movement_vector.rotated(rotation) * SPEED * delta)
 		$CPUParticles2D.emitting = true
