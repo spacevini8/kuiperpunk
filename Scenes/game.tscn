@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwwc7vsb5axrk"]
+[gd_scene load_steps=17 format=3 uid="uid://dwwc7vsb5axrk"]
 
 [ext_resource type="PackedScene" uid="uid://c2jcy00ajf1sg" path="res://Scenes/player_ship.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://b1j1jrwo4rhnb" path="res://Scripts/game.gd" id="1_nnt18"]
 [ext_resource type="Script" uid="uid://c8wbgeh8xsxuf" path="res://Scripts/player_ship.gd" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://bg0ximm5up7mg" path="res://Scripts/planets.gd" id="3_rfjv2"]
 [ext_resource type="Texture2D" uid="uid://58bvynrj1dmh" path="res://Assets/Sprites/Planets/sun.png" id="3_wrm1d"]
@@ -17,9 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://d3t66ts0lqbhg" path="res://Assets/Sprites/Game/Meteors/spaceMeteors_001.png" id="14_1phco"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_nnt18")
 
 [node name="Player_ship" parent="." instance=ExtResource("1_ebmjs")]
-position = Vector2(2930, 821)
+position = Vector2(3141, 1018)
 script = ExtResource("2_qxrlw")
 
 [node name="Camera2D" type="Camera2D" parent="Player_ship"]
@@ -34,48 +36,53 @@ metadata/size_scale = 0.0
 scale = Vector2(10, 10)
 texture = ExtResource("3_wrm1d")
 
-[node name="Mercury" type="Sprite2D" parent="Planets"]
+[node name="Rock" type="Node" parent="Planets"]
+
+[node name="Mercury" type="Sprite2D" parent="Planets/Rock"]
 position = Vector2(4200, 0)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("4_rku1e")
 
-[node name="Venus" type="Sprite2D" parent="Planets"]
+[node name="Venus" type="Sprite2D" parent="Planets/Rock"]
 position = Vector2(7100, 0)
 scale = Vector2(4.75, 4.75)
 texture = ExtResource("5_rfjv2")
 
-[node name="Earth" type="Sprite2D" parent="Planets"]
+[node name="Earth" type="Sprite2D" parent="Planets/Rock"]
 position = Vector2(10000, 0)
 scale = Vector2(5, 5)
 texture = ExtResource("6_1phco")
 
-[node name="Space_station_earth" type="Sprite2D" parent="Planets/Earth"]
-position = Vector2(299.99988, 0)
+[node name="Space_station_earth" type="Sprite2D" parent="Planets/Rock/Earth"]
+position = Vector2(350, 0)
+rotation = 1.5707964
 scale = Vector2(0.19999999, 0.19999999)
 texture = ExtResource("8_nb51f")
 
-[node name="Mars" type="Sprite2D" parent="Planets"]
+[node name="Mars" type="Sprite2D" parent="Planets/Rock"]
 position = Vector2(15237, 0)
 scale = Vector2(2.65, 2.65)
 texture = ExtResource("7_nb51f")
 
-[node name="Jupiter" type="Sprite2D" parent="Planets"]
+[node name="Gas" type="Node" parent="Planets"]
+
+[node name="Jupiter" type="Sprite2D" parent="Planets/Gas"]
 position = Vector2(18422, -1)
 texture = ExtResource("8_nnt18")
 
-[node name="Saturn" type="Sprite2D" parent="Planets"]
+[node name="Saturn" type="Sprite2D" parent="Planets/Gas"]
 position = Vector2(19858, -1)
 texture = ExtResource("9_ewbju")
 
-[node name="SaturnRings" type="Sprite2D" parent="Planets/Saturn"]
+[node name="SaturnRings" type="Sprite2D" parent="Planets/Gas/Saturn"]
 scale = Vector2(2.1757355, 2.1757355)
 texture = ExtResource("10_85qyi")
 
-[node name="Uranus" type="Sprite2D" parent="Planets"]
+[node name="Uranus" type="Sprite2D" parent="Planets/Gas"]
 position = Vector2(21513, 0)
 texture = ExtResource("11_iivbl")
 
-[node name="Neptune" type="Sprite2D" parent="Planets"]
+[node name="Neptune" type="Sprite2D" parent="Planets/Gas"]
 position = Vector2(23299, 0)
 texture = ExtResource("12_7nbq1")
 
@@ -110,6 +117,7 @@ speed_scale = 64.0
 explosiveness = 0.6
 randomness = 1.0
 use_fixed_seed = true
+seed = 518798057
 emission_shape = 1
 emission_sphere_radius = 128.0
 direction = Vector2(0, 0)

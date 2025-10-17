@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2jcy00ajf1sg"]
+[gd_scene load_steps=6 format=3 uid="uid://c2jcy00ajf1sg"]
 
 [ext_resource type="Texture2D" uid="uid://cg7j53xos5uds" path="res://Assets/Sprites/Game/Ships/spaceShips_008.png" id="1_3k1ca"]
+[ext_resource type="Texture2D" uid="uid://qoklse84g83u" path="res://Assets/Sprites/Game/Effects/spaceEffects_001.png" id="2_6s7s7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3k1ca"]
 radius = 57.0
@@ -38,8 +39,12 @@ initial_velocity_min = 50.0
 initial_velocity_max = 200.0
 angular_velocity_max = 720.0
 linear_accel_max = 100.0
-scale_amount_min = 5.0
-scale_amount_max = 35.0
+scale_amount_min = 10.0
+scale_amount_max = 50.0
 scale_amount_curve = SubResource("Curve_3k1ca")
 color_ramp = SubResource("Gradient_6s7s7")
 hue_variation_max = 1.0
+
+[node name="Pointer" type="Sprite2D" parent="."]
+texture = ExtResource("2_6s7s7")
+offset = Vector2(0, 150)
