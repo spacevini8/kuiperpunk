@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwwc7vsb5axrk"]
+[gd_scene load_steps=16 format=3 uid="uid://dwwc7vsb5axrk"]
 
 [ext_resource type="PackedScene" uid="uid://c2jcy00ajf1sg" path="res://Scenes/player_ship.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://c8wbgeh8xsxuf" path="res://Scripts/player_ship.gd" id="2_qxrlw"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://547aov763ior" path="res://Assets/Sprites/Planets/venus.png" id="5_rfjv2"]
 [ext_resource type="Texture2D" uid="uid://ci8jifiutw3h" path="res://Assets/Sprites/Planets/earth.png" id="6_1phco"]
 [ext_resource type="Texture2D" uid="uid://b80ege3ei4bhg" path="res://Assets/Sprites/Planets/mars.png" id="7_nb51f"]
+[ext_resource type="Texture2D" uid="uid://cl1cl56n7o4aa" path="res://Assets/Sprites/Game/Station/spaceStation_017.png" id="8_nb51f"]
 [ext_resource type="Texture2D" uid="uid://d2gpj2dw84onl" path="res://Assets/Sprites/Planets/jupiter.png" id="8_nnt18"]
 [ext_resource type="Texture2D" uid="uid://cyhfqv0oqmxy" path="res://Assets/Sprites/Planets/saturn.png" id="9_ewbju"]
 [ext_resource type="Texture2D" uid="uid://c4sd8s06jbwvt" path="res://Assets/Sprites/Planets/saturn_rings.png" id="10_85qyi"]
 [ext_resource type="Texture2D" uid="uid://c4c7polh3q5xd" path="res://Assets/Sprites/Planets/uranus.png" id="11_iivbl"]
 [ext_resource type="Texture2D" uid="uid://bm6u1lvdynlwd" path="res://Assets/Sprites/Planets/neptune.png" id="12_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://d3t66ts0lqbhg" path="res://Assets/Sprites/Game/Meteors/spaceMeteors_001.png" id="14_1phco"]
 
 [node name="Game" type="Node2D"]
 
@@ -47,6 +49,11 @@ position = Vector2(10000, 0)
 scale = Vector2(5, 5)
 texture = ExtResource("6_1phco")
 
+[node name="Space_station_earth" type="Sprite2D" parent="Planets/Earth"]
+position = Vector2(299.99988, 0)
+scale = Vector2(0.19999999, 0.19999999)
+texture = ExtResource("8_nb51f")
+
 [node name="Mars" type="Sprite2D" parent="Planets"]
 position = Vector2(15237, 0)
 scale = Vector2(2.65, 2.65)
@@ -71,3 +78,46 @@ texture = ExtResource("11_iivbl")
 [node name="Neptune" type="Sprite2D" parent="Planets"]
 position = Vector2(23299, 0)
 texture = ExtResource("12_7nbq1")
+
+[node name="Asteroid_test_1" type="CPUParticles2D" parent="."]
+visible = false
+scale = Vector2(135, 135)
+emitting = false
+amount = 10000
+texture = ExtResource("14_1phco")
+lifetime = 600.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 25
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+orbit_velocity_max = 0.01
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.0
+scale_amount_max = 0.4
+
+[node name="Asteroid_belt_1" type="CPUParticles2D" parent="."]
+scale = Vector2(5, 5)
+amount = 10000
+texture = ExtResource("14_1phco")
+lifetime = 1000.0
+preprocess = 100.0
+speed_scale = 64.0
+explosiveness = 0.6
+randomness = 1.0
+use_fixed_seed = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 0.1
+angular_velocity_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.0
+scale_amount_max = 0.5
